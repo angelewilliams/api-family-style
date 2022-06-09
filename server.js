@@ -36,24 +36,6 @@ app.get('/api/v1/recipes', (request, response) => {
   
     response.status(200).json(foundRecipe);
   });
-  
-
-  // app.get('/ideas/:id', (request, response) => {
-  //   const id = parseInt(request.params.id);
-  //   const foundIdea = app.locals.ideas.find(idea => idea.id === id);
-  
-  //   if (!foundIdea) {
-  //     return response.status(404).json({ message: `Sorry, no idea found with an id of ${id}` })
-  //   }
-  
-  //   response.status(200).json(foundIdea);
-  // });
-  
-
-
-
-
-
 
   app.post('/api/v1/recipes', (request, response) => {
     const submittedRecipe = request.body;
