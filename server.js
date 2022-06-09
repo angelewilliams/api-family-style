@@ -12,7 +12,7 @@ app.locals.recipes = recipes;
 
 app.set('port', process.env.PORT || 3000);
 
-app.get('/', (request, response) => {
+app.get('/api/v1/', (request, response) => {
   response.send('Oh HEY Family Style API');
 });
 
@@ -28,16 +28,32 @@ app.get('/api/v1/recipes', (request, response) => {
 
 
   app.get('/api/v1/recipes/:id', (request, response) => {
-    const { id } = request.params;
-    const recipe = app.locals.recipes.find(recipe => recipe.id === id);
-    if (!recipe) {
-      return response.sendStatus(404);
+    const id  = parseInt(request.params.id);
+    const foundRecipe = app.locals.recipes.find(recipe => recipe.id === id);
+    if (!foundRecipe) {
+      return response.sendStatus(404).json({ message: `Sorry, no recipe was found with an id of ${id}` })
     }
   
-    response.status(200).json(recipe);
+    response.status(200).json(foundRecipe);
   });
 
-  app.delete('/recipes/:id', (request, response) => {
+  app.post('/api/v1/recipes', (request, response) => {
+    const submittedRecipe = request.body;
+  
+    for (let requiredParameter of ['title', 'url', 'notes', 'submittedBy', 'group', 'tags']) {
+      if (!submittedRecipe[requiredParameter]) {
+        return response.status(422).json({ message: `Body is missing required parameter of ${requiredParameter}.`})
+      }
+    }
+  
+    submittedRecipe.id = Date.now();
+    app.locals.recipes.push(submittedRecipe);
+  
+    response.status(201).json(submittedRecipe);
+  });
+
+
+  app.delete('/api/v1/recipes/:id', (request, response) => {
     const id = parseInt(request.params.id);
     const filteredRecipes = app.locals.ideas.filter(recipe => recipe.id !== id);
     app.locals.recipes = filteredRecipes;
