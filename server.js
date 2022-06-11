@@ -10,7 +10,7 @@ app.use(express.json());
 app.locals.title = 'Family Style';
 app.locals.recipes = recipes;
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 app.get('/api/v1/', (request, response) => {
   response.send('Oh HEY Family Style API');
@@ -40,7 +40,7 @@ app.get('/api/v1/recipes', (request, response) => {
   app.post('/api/v1/recipes', (request, response) => {
     const submittedRecipe = request.body;
   
-    for (let requiredParameter of ['title', 'url', 'notes', 'submittedBy', 'group', 'tags']) {
+    for (let requiredParameter of ['title', 'url', 'notes', 'submittedBy', 'group', 'tag']) {
       if (!submittedRecipe[requiredParameter]) {
         return response.status(422).json({ message: `Body is missing required parameter of ${requiredParameter}.`})
       }
@@ -55,7 +55,7 @@ app.get('/api/v1/recipes', (request, response) => {
 
   app.delete('/api/v1/recipes/:id', (request, response) => {
     const id = parseInt(request.params.id);
-    const filteredRecipes = app.locals.ideas.filter(recipe => recipe.id !== id);
+    const filteredRecipes = app.locals.recipes.filter(recipe => recipe.id !== id);
     app.locals.recipes = filteredRecipes;
   
     response.status(200).json(app.locals.recipes);
