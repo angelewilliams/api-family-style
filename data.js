@@ -5,8 +5,8 @@ const recipes = [
       url: 'https://www.joyofbaking.com/AngelFoodCake.html', 
       notes: 'this recipe is different from the OG',
       submittedBy: 'Angele',
-      group: 'williams',
-      tags: ['dessert']
+      group: 'group1',
+      tag: 'dessert'
     },
     { 
         id: 2, 
@@ -14,8 +14,8 @@ const recipes = [
         url: 'https://www.foodnetwork.com/recipes/ina-garten/zucchini-pancakes-recipe-1948910', 
         notes: 'Tasty and good for using up zucchini',
         submittedBy: 'Angele',
-        group: 'williams',
-        tags: ['main']
+        group: 'group1',
+        tag: 'main'
     },
     { 
         id: 3, 
@@ -23,8 +23,8 @@ const recipes = [
         url: 'https://docs.google.com/document/d/1oAojta_-D-KpJnDwPOP3zbnu4fisqBhYr9FJGKgOijQ/edit?usp=sharing', 
         notes: 'exceptional with a cup of coffee',
         submittedBy: 'Angele',
-        group: 'williams',
-        tags: ['dessert']
+        group: 'group1',
+        tag: 'dessert'
     },
     { 
         id: 4, 
@@ -32,8 +32,8 @@ const recipes = [
         url: 'https://docs.google.com/document/d/1zc2Vb_TjfBzFTvFsSbgNkc1nUxStkMIbUabd9ICD6UA/edit?usp=sharing', 
         notes: 'I would recommend using apples, pear, or any kind of stone fruit',
         submittedBy: 'Angele',
-        group: 'williams',
-        tags: ['dessert']
+        group: 'group1',
+        tag: 'dessert'
     },
     { 
         id: 5, 
@@ -41,8 +41,8 @@ const recipes = [
         url: 'https://www.foodnetwork.com/recipes/good-on-everything-green-sauce-12241248', 
         notes: 'Tasty and good for using up zucchini',
         submittedBy: 'Angele',
-        group: 'williams',
-        tags: ['sauce']
+        group: 'group1',
+        tag: 'sauce'
     },
     { 
         id: 6, 
@@ -50,8 +50,8 @@ const recipes = [
         url: 'https://docs.google.com/document/d/17SKnyCb9ypZUV3XfdXIEwgL6hyNLOJ36PGWYtpC6Kt4/edit?usp=sharing', 
         notes: 'Tasty and good for using up zucchini',
         submittedBy: 'Angele',
-        group: 'williams',
-        tags: ['salad']
+        group: 'group1',
+        tag: 'salad'
     },
     
 
